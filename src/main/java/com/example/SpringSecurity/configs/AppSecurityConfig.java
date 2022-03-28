@@ -14,6 +14,8 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+			.antMatchers("/","index","/css/*","/js/*")
+			.permitAll()
 			.anyRequest()
 			.authenticated()
 			.and()
@@ -22,6 +24,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	// We need to authorize requests, any request should be authenticated and authentication type is basic auth (we need pass username and password everytime)
 	
+	// antMatcher finds the pattern of mentioned string and allows everyone to that path
 	
 	
 }

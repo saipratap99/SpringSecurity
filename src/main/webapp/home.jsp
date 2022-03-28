@@ -13,7 +13,7 @@
     <body>
         <h1>Welcome!</h1>
         
-        <p>Click <a href="/hello">Here</a> to see a greeting.</p>
+        <p>Click <a href="/greet">Here</a> to see a greeting.</p>
     </body>
 </body>
 </html>
