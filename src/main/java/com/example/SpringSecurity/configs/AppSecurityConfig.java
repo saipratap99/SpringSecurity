@@ -35,6 +35,8 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
 	// Authentication
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		/* InMemoryAuthentication
+		
 		auth.inMemoryAuthentication()
 			.withUser("pratap")
 			.password("changeme")                           
@@ -44,6 +46,9 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
 			.password("admin")
 			.roles("ADMIN");
 		
+		*/
+		
+
 		
 	}	
 	
