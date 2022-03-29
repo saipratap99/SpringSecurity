@@ -16,4 +16,9 @@ public class HomeController {
 	public String greet() {
 		return "hello.jsp";
 	}
+	
+	@RequestMapping("/admin")
+	public String admin() {
+		return "admin.jsp";
+	}
 }

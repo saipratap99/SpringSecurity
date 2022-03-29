@@ -15,21 +15,24 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
 
+	// Authorization
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/","index","/css/*","/js/*")
-			.permitAll()
+			.antMatchers("/","index","/css/*","/js/*").permitAll().and().authorizeRequests()
+			.antMatchers("/greet").hasAnyRole("USER","ADMIN").and().authorizeRequests()
+			.antMatchers("/admin").hasRole("ADMIN")
 			.anyRequest()
 			.authenticated()
 			.and()
-			.httpBasic();
+			.formLogin();
 	}
 
 	// We need to authorize requests, any request should be authenticated and authentication type is basic auth (we need pass username and password everytime)
 	
 	// antMatcher finds the pattern of mentioned string and allows everyone to that path
 	
+	// Authentication
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
