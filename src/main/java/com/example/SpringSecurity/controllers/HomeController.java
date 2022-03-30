@@ -45,7 +45,7 @@ public class HomeController {
 	
 	@PostMapping("/authenticate")
 	public ResponseEntity<AuthenticationResponse> generateToken(@RequestBody AuthenticationRequest req) throws Exception{
-		
+		System.out.println("authenticate");
 		try {
 			authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword())
@@ -57,7 +57,7 @@ public class HomeController {
 		
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(req.getUsername());
 		final String jwt = jwtUtil.generateToken(userDetails);
-		 
+		System.out.println(jwt);
 		return ResponseEntity.ok(new AuthenticationResponse(jwt));
 		
 	}
