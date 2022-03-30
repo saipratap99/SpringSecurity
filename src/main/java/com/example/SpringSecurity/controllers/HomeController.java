@@ -26,8 +26,11 @@ public class HomeController {
 		return "admin.jsp";
 	}
 	
+	/*
 	@RequestMapping("/authenticate")
 	public RequestEntity<T> generateToken(@RequestBody AuthenticationRequest req){
 		
 	}
+	
+	*/
 }
